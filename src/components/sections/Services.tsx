@@ -42,76 +42,92 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 relative">
+    <section id="services" className="py-32 relative">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Our <span className="gradient-text">Services</span>
+        {/* Architectural Section Header */}
+        <div className="mb-24 scroll-reveal">
+          <div className="flex items-center mb-8">
+            <div className="w-8 h-px bg-accent mr-6" />
+            <span className="text-xs font-light tracking-[0.3em] text-muted-foreground uppercase">
+              Capabilities
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-extralight mb-8 max-w-3xl">
+            STRATEGIC <span className="gradient-text font-light">SERVICES</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We offer comprehensive digital marketing solutions tailored to your business needs
+          <p className="text-base text-muted-foreground max-w-xl font-light leading-relaxed">
+            Precision-crafted solutions that elevate brands through strategic digital architecture.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Minimal Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {services.map((service, index) => (
-            <Card 
+            <div 
               key={index} 
-              className="glass-effect hover-lift p-8 group cursor-pointer scroll-reveal"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-background p-12 group cursor-pointer scroll-reveal hover-lift relative"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-accent rounded-2xl flex items-center justify-center mb-6 group-hover:animate-glow transition-all duration-300">
-                <service.icon className="w-8 h-8 text-white" />
+              {/* Minimal Icon */}
+              <div className="w-12 h-12 border border-accent/20 flex items-center justify-center mb-8 group-hover:border-accent/60 transition-all duration-500">
+                <service.icon className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors duration-500" />
+              </div>
+
+              {/* Number */}
+              <div className="text-6xl font-extralight text-accent/20 mb-4 group-hover:text-accent/40 transition-colors duration-500">
+                0{index + 1}
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold mb-4 group-hover:text-accent transition-colors">
+              <h3 className="text-lg font-light mb-6 group-hover:text-accent transition-colors duration-500 tracking-wide">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-8 leading-relaxed text-sm font-light">
                 {service.description}
               </p>
 
               {/* Features */}
-              <ul className="space-y-2">
+              <div className="space-y-3">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full mr-3" />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
+                  <div key={featureIndex} className="flex items-center text-xs">
+                    <div className="w-px h-4 bg-accent/30 mr-4" />
+                    <span className="text-muted-foreground font-light tracking-wide">{feature}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-xl" />
-            </Card>
+              {/* Hover Line */}
+              <div className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700" />
+            </div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16 scroll-reveal">
-          <div className="glass-effect rounded-2xl p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to accelerate your growth?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Let's discuss how our services can help you achieve your digital marketing goals
-            </p>
-            <button className="bg-gradient-accent hover:shadow-glow px-8 py-3 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-105">
-              Get Free Consultation
-            </button>
+        {/* Minimal CTA Section */}
+        <div className="mt-32 scroll-reveal">
+          <div className="border-t border-border pt-16">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+              <div>
+                <h3 className="text-2xl font-light mb-2 tracking-wide">
+                  Ready to build something exceptional?
+                </h3>
+                <p className="text-muted-foreground font-light">
+                  Let's architect your digital future together.
+                </p>
+              </div>
+              <button className="mt-6 md:mt-0 group relative px-8 py-4 bg-transparent border border-accent/20 hover:border-accent transition-all duration-700">
+                <span className="font-light tracking-widest text-sm uppercase">Start Conversation</span>
+                <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-5 transition-opacity duration-700" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Background Decoration */}
-      <div className="absolute top-1/2 left-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+      {/* Minimal Background Elements */}
+      <div className="absolute top-1/4 left-0 w-px h-64 bg-accent/10" />
+      <div className="absolute bottom-1/4 right-0 w-px h-32 bg-accent/20" />
     </section>
   );
 };
